@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import BgVideo from '../../public/assets/landing.mp4';
 import BgImage from '../../public/assets/purple-poster.png';
 import GlitchText from '../utils/GlitchText';
@@ -10,7 +10,6 @@ export default function Landing() {
     'ACCESS ALL ECOSYSTEMS',
   ]);
   const [currentHeadingIndex, setCurrentHeadingIndex] = useState<number>(0);
-  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -48,25 +47,13 @@ export default function Landing() {
             <GlitchText text={headings[currentHeadingIndex]} />
           </div>
           <div className="content-box">
-            <GlitchText
-              text="Evmos is the operating system for applications of the future."
-            />
+            <GlitchText text="Evmos is the operating system for applications of the future." />
             <div className="content-buttons">
-              <a
-                href="/"
-                className="cb cb-1"
-                onMouseEnter={() => setIsAnimating(true)} // Start animation on hover
-                onMouseLeave={() => setIsAnimating(false)} // Stop animation on hover out
-              >
-                <GlitchText text="Start Building" isAnimating={false} />
+              <a href="/" className="cb cb-1">
+                <GlitchText text="Start Building" />
               </a>
-              <a
-                href="/"
-                className="cb cb-2"
-                onMouseEnter={() => setIsAnimating(true)} // Start animation on hover
-                onMouseLeave={() => setIsAnimating(false)} // Stop animation on hover out
-              >
-                <GlitchText text="Read Manifesto" isAnimating={false} />
+              <a href="/" className="cb cb-2">
+                <GlitchText text="Read Manifesto" />
               </a>
             </div>
           </div>
