@@ -15,6 +15,10 @@ const GlitchText: React.FC<GlitchTextProps> = ({ text }) => {
 
       const animateGlitch = () => {
         const animation = gsap.timeline({ repeat: 0 });
+
+        // Show the full heading
+        gsap.set(headingRef.current, { opacity: 1 });
+
         const letters = text.split('');
 
         letters.forEach((_, index) => {
