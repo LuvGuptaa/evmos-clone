@@ -10,6 +10,8 @@ export default function Landing() {
     'ACCESS ALL ECOSYSTEMS',
   ]);
   const [currentHeadingIndex, setCurrentHeadingIndex] = useState<number>(0);
+  const [onFirstButton, setOnFirstButton] = useState(false)
+  const [onSecondButton, setOnSecondButton] = useState(false)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -44,16 +46,16 @@ export default function Landing() {
             <span>REACH EVERYWHERE</span>
           </div>
           <div className="heading">
-            <GlitchText text={headings[currentHeadingIndex]} />
+            <GlitchText text={headings[currentHeadingIndex]} isAnimating={false}/>
           </div>
           <div className="content-box">
-            <GlitchText text="Evmos is the operating system for applications of the future." />
+            <GlitchText text="Evmos is the operating system for applications of the future." isAnimating={false} />
             <div className="content-buttons">
-              <a href="/" className="cb cb-1">
-                <GlitchText text="Start Building" />
+            <a href="/" className="cb cb-1" onMouseEnter={() => setOnFirstButton(true)} onMouseLeave={() => { setOnFirstButton(false)}}>
+                <GlitchText text="Start Building" isAnimating={onFirstButton ? true : false}/>
               </a>
-              <a href="/" className="cb cb-2">
-                <GlitchText text="Read Manifesto" />
+              <a href="/" className="cb cb-2" onMouseEnter={() => setOnSecondButton(true)} onMouseLeave={() => { setOnSecondButton(false)}}>
+                <GlitchText text="Read Manifesto" isAnimating={onSecondButton ? true : false} />
               </a>
             </div>
           </div>
