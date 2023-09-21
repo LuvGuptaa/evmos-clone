@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "NB Int";
+  src: url('../../public/fonts/nb-international-pro-reg.woff2');
+}
+@font-face {
+  font-family: "NB Int Med";
+  src: url("../../public/fonts/nb-international-pro-med.woff2");
+}
+@font-face {
+  font-family: "NB Int Bold";
+  src: url('../../public/fonts/nb-international-pro-bol.woff2');
+}
+@font-face {
+  font-family: "NB Int Mono";
+  src: url('../../public/fonts/nb-international-pro-mono.woff2');
+}
+@font-face {
+  font-family: "Evmos";
+  src: url('../../public/fonts/EvmosDisplay-Regular.woff2');
+}
+@font-face {
+  font-family: "Evmos Bold";
+  src: url("../../public/fonts/EvmosDisplay-ExtraBold.woff2");
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #100b13;
+  overflow: hidden;
+}
