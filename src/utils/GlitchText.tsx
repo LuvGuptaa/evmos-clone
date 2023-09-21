@@ -1,65 +1,67 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
 interface GlitchTextProps {
   text: string;
+  isAnimating?: boolean;
 }
 
-const GlitchText: React.FC<GlitchTextProps> = ({ text }) => {
+const GlitchText: React.FC<GlitchTextProps> = ({ text, isAnimating = true }) => {
   const headingRef = useRef<HTMLDivElement | null>(null);
-  const [prevText, setPrevText] = useState<string>('');
 
   useEffect(() => {
-    if (text !== prevText) {
-      setPrevText(text);
+    const animateGlitch = () => {
+      const animation = gsap.timeline({ repeat: 0 });
 
-      const animateGlitch = () => {
-        const animation = gsap.timeline({ repeat: 0 });
+      const container = headingRef.current;
+      if (!container) return; // Check if container is defined
 
-        // Show the full heading
-        gsap.set(headingRef.current, { opacity: 1 });
+      const letters = Array.from(container.childNodes) as HTMLElement[];
 
-        const letters = text.split('');
+      letters.forEach((letterRef, index) => {
+        if (letterRef) {
+          const glitchTimeline = gsap.timeline({
+            repeat: 1,
+            yoyo: true,
+            onComplete: () => {
+              if (index === letters.length - 1) {
+                // Animation completed
+                // Ensure all letters have opacity 1 quickly
+                gsap.to(letters, {
+                  opacity: 1,
+                  duration: 0.2, // Adjust the duration as needed
+                });
+              }
+            },
+          });
 
-        letters.forEach((_, index) => {
-          const letterRef = headingRef.current?.childNodes[index] as HTMLElement;
+          // Smooth appear animation with variable duration
+          glitchTimeline.to(letterRef, {
+            duration: isAnimating ? gsap.utils.random(0.075, 0.2) : 0,
+            opacity: 0,
+            ease: 'power1.inOut',
+          });
 
-          if (letterRef) {
-            const glitchTimeline = gsap.timeline({
-              repeat: 1,
-              yoyo: true,
-              onComplete: () => {
-                if (index === letters.length - 1) {
-                  setPrevText(text); // Update prevText when animation completes
-                }
-              },
-            });
+          // Fast disappear animation with variable duration
+          glitchTimeline.to(letterRef, {
+            duration: isAnimating ? gsap.utils.random(0.05, 0.075) : 0,
+            opacity: 0,
+            ease: 'power2.inOut',
+          });
 
-            // Smooth appear animation
-            glitchTimeline.to(letterRef, {
-              duration: gsap.utils.random(0.2, 0.4), // Smooth duration
-              opacity: 0,
-              ease: 'power1.inOut',
-            });
+          // Ensure opacity is set to 1 when the animation starts
+          glitchTimeline.set(letterRef, { opacity: isAnimating ? 1 : 0 });
 
-            // Fast disappear animation
-            glitchTimeline.to(letterRef, {
-              duration: gsap.utils.random(0.05, 0.1), // Fast duration
-              opacity: 1,
-              ease: 'power1.inOut',
-            });
+          animation.add(glitchTimeline, index * gsap.utils.random(0.05, 0.2));
+        }
+      });
+    };
 
-            animation.add(glitchTimeline, index * gsap.utils.random(0.05, 0.2));
-          }
-        });
-      };
-
-      animateGlitch();
-    }
-  }, [text, prevText]);
+    animateGlitch();
+  }, [text, isAnimating]);
 
   return (
-    <div className="glitch-text" ref={headingRef}>
+    <div className={`glitch-text ${isAnimating ? 'animating' : ''}`} ref={headingRef}>
       {text.split('').map((letter, index) => (
         <span key={index}>{letter}</span>
       ))}

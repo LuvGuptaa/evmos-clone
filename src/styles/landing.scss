@@ -87,10 +87,66 @@
                 display: inline-block;
                 white-space: wrap;
                 overflow: hidden;
+
+                .glitch-text.animating span {
+                    opacity: 1;
+                  }
+            }
+        }
+
+        .content-box {
+            grid-row: 3;
+            justify-self: flex-start;
+            align-self: flex-start;
+            grid-column: span 4/-2;
+            font-family: "NB Int Bold";
+
+
+            .glitch-text {
+                line-height: 130%;
+                letter-spacing: .01em;
+                font-size: 1.3888888889vw;
+                margin-bottom: 1.1111111111vw;
+                margin-top: 1.11111111111vw;
+                padding-right: 1.25vw;
+
+                .glitch-text.animating span {
+                    opacity: 1;
+                  }
             }
 
-            /* Add any additional styling you want here */
+            .content-buttons {
+                display: flex;
+                font-size: 1.111111111111vw;
 
+                a.cb {
+                    text-decoration: none;
+                    cursor: pointer;
+                    border-radius: .5555555556vw;
+                }
+
+                .glitch-text {
+                    padding: 0 1.6666666667vw;
+                    line-height: 75%;
+                    font-size: 1.1111111111vw;
+
+                    .glitch-text.animating span {
+                        opacity: 1;
+                      }
+                }
+
+                a.cb-1 {
+                    margin-right: .555555555555vw;
+                    background-color: #fff4e1;
+                    color: black;
+                }
+
+                a.cb-2 {
+                    color: #fff4e1;
+                    border: 1px solid #fff4e1;
+                    background: transparent;
+                }
+            }
         }
     }
 }
