@@ -4,7 +4,7 @@ import BgImage from '../../public/assets/purple-poster.png'
 import GlitchText from '../utils/GlitchText'
 import '../styles/landing.scss'
 export default function Landing() {
-    const [headings, setHeadings] = useState<string[]>([
+    const [headings] = useState<string[]>([
         'DEPLOY ONCE-',
         'ACCESS ALL ECOSYSTEMS',
     ]);
