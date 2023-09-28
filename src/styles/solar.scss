@@ -50,16 +50,16 @@
         width: 100%;
         margin-top: 8.222vw;
 
-        &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translate(-50%);
-            width: .1px;
-            height: 100%;
-            border-left: 1px solid #a4a189;
-        }
+        // &::before {
+        //     content: "";
+        //     position: absolute;
+        //     top: 0;
+        //     left: 50%;
+        //     transform: translate(-50%);
+        //     width: 0px;
+        //     height: 100%;
+        //     border-left: 1px solid #a4a189;
+        // }
 
         .solar-sticky {
             position: relative;

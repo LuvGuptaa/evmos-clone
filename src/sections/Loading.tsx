@@ -9,7 +9,8 @@ interface LoadingProps {
 const Loading: React.FC<LoadingProps> = ({ loadingProgress }) => {
 
   const [loadingComplete, setLoadingComplete] = useState(false);
-  const svgControl = useAnimation();
+  const svgControl1 = useAnimation();
+  const svgControl2 = useAnimation();
 
   useEffect(() => {
     setTimeout(() => {
@@ -20,11 +21,12 @@ const Loading: React.FC<LoadingProps> = ({ loadingProgress }) => {
       gsap.to('.loading-text', { opacity: 0, duration: .5});
       gsap.to('.loading-text-2', { opacity: 0, duration: .5, delay: .5 });
 
-      svgControl.start({ y: 0 });
+      svgControl1.start({ y: 0 });
+      svgControl2.start({ y: 0, x: -600 });
       gsap.to('.loading', {display: 'none', delay: 2})
       gsap.to('body', {height: 'fit-content', overflowY: 'scroll', overflowX: 'hidden' , delay: 2})
     }
-  }, [loadingComplete, svgControl]);
+  }, [loadingComplete, svgControl1, svgControl2]);
 
   return (
     <div className="loading">
@@ -33,8 +35,8 @@ const Loading: React.FC<LoadingProps> = ({ loadingProgress }) => {
           <motion.svg
             className="svg-up"
             initial={{ y: '100%', opacity: 1 }}
-            animate={svgControl}
-            transition={{ duration: 1.5, delay: .5, ease: easeInOut }}
+            animate={svgControl1}
+            transition={{ duration: 2, delay: .5, ease: easeInOut }}
             height='70%'
             viewBox="0 0 1946 530" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M913.3 406.9 1032.7 521a32 32 0 0 0 22.1 8.9H1946V0H0v398h891.2a32 32 0 0 1 22 8.9Z" fill="black"></path></motion.svg>
         </div>
@@ -42,8 +44,8 @@ const Loading: React.FC<LoadingProps> = ({ loadingProgress }) => {
           <motion.svg
             className="svg-down"
             initial={{ y: '-100%', opacity: 1 }}
-            animate={svgControl}
-            transition={{ duration: 1.5, delay: .5, ease: easeInOut }}
+            animate={svgControl2}
+            transition={{ duration: 2, delay: .5, ease: easeInOut }}
             height='70%'
             viewBox="0 0 1946 530" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1032.7 123.1 913.3 9a32 32 0 0 0-22.1-9H0v530h1946V132h-891.2a32 32 0 0 1-22-8.9Z" fill="black"></path></motion.svg>
         </div>
