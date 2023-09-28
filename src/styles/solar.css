@@ -1,0 +1,183 @@
+.solar {
+  position: relative;
+  height: 200vh;
+}
+.solar .shape {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  bottom: calc(100% - 1px);
+  left: 0;
+  right: 0;
+  z-index: 3;
+}
+.solar .shape svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.solar .solar-outer {
+  position: relative;
+}
+.solar .solar-outer .solar-inner {
+  padding-top: 6.6666666667vw;
+}
+.solar .solar-outer .solar-inner .solar-grid {
+  width: 100%;
+  overflow: hidden;
+  margin-right: 4vw;
+  margin-left: 4vw;
+  margin-bottom: 6.6666667vw;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-gap: 2.2222vw;
+  row-gap: 0;
+}
+.solar .solar-outer .solar-inner .solar-grid .slider-container {
+  margin-bottom: 14.44444vw;
+  display: flex;
+  white-space: nowrap;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  height: 100%;
+  width: 500%;
+}
+.solar .solar-outer .solar-inner .solar-grid .slider-container .card {
+  width: 100%;
+  aspect-ratio: 416/248;
+  margin-right: 2.2222222222vw;
+  color: #fff4e1;
+  padding: 1.6666666667vw;
+  flex-shrink: 0;
+  height: 100%;
+}
+.solar .solar-outer .solar-inner .solar-grid .slider-container .card .card-frame-top {
+  -webkit-clip-path: inset(0 0 calc(100% - 2.2222222222vw) 0);
+          clip-path: inset(0 0 calc(100% - 2.2222222222vw) 0);
+  border: 1px solid #a4a189;
+  border-radius: 0.833333vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.solar .solar-outer .solar-inner .solar-grid .slider-container .card .card-data {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.solar .solar-outer .solar-inner .solar-grid .slider-container .card .card-data .card-data-header {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  height: 0.2777777778vw;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+.solar .solar-outer .solar-inner .solar-grid .slider-container .card .card-data .card-data-header p {
+  font-family: "NB Int Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.8333333333vw;
+  line-height: 120%;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  max-width: 34%;
+  width: 7.8444444vw;
+  color: #a4a189;
+  flex-shrink: 0;
+}
+.solar .solar-outer .solar-inner .solar-grid .slider-container .card .card-data .card-data-header:after {
+  content: "";
+  position: absolute;
+  height: 0.2777777778vw;
+  width: 0.2777777778vw;
+  background-color: #a4a189;
+  top: 0;
+  right: 0;
+  color: #fff4e1;
+}
+.solar .solar-outer .solar-inner .solar-grid .slider-container .card .card-data .card-data-footer {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  height: 0.2777777778vw;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.solar .solar-outer .solar-inner .solar-grid .slider-container .card .card-data .card-data-footer:before {
+  content: "";
+  width: 0.2777777778vw;
+  height: 0.2777777778vw;
+  background-color: #a4a189;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.solar .solar-outer .solar-inner .solar-grid .slider-container .card .card-data .card-data-footer:after {
+  content: "";
+  width: 0.2777777778vw;
+  height: 0.2777777778vw;
+  background-color: #a4a189;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.solar .solar-outer .solar-inner .solar-grid .slider-container .card .card-data h4 {
+  font-family: "NB Int";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 3.333vw;
+  line-height: 110%;
+  letter-spacing: -0.01em;
+}
+.solar .solar-outer .solar-inner .solar-grid .slider-container .card .card-data .card-number {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.solar .solar-outer .solar-inner .solar-grid .slider-container .card .card-data .card-number::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 1.1111111111vw;
+  height: 1.1111111111vw;
+  background-color: #fe5f05;
+  border-radius: 100%;
+  animation-name: types_pulse__5oaDL, types_flash__4VfUZ, types_glow__25XV0;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(0.42, 0, 0.33, 1);
+}
+.solar .solar-outer .solar-inner .solar-grid .slider-container .card .card-frame-bottom {
+  -webkit-clip-path: inset(calc(100% - 2.2222222222vw) 0 0 0);
+          clip-path: inset(calc(100% - 2.2222222222vw) 0 0 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid #a4a189;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.8333333333vw;
+  pointer-events: none;
+}
+
+@keyframes infiniteright {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}/*# sourceMappingURL=solar.css.map */
