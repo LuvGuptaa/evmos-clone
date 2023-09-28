@@ -35,6 +35,7 @@ export default function Landing() {
                 await img.decode(); // Wait for image to load
                 images.push(img);
             }
+            await Promise.all(images.map((img) => img.decode()));
 
             gsap.to(planet, {
                 frame: frameCount - 1,
