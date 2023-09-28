@@ -22,6 +22,7 @@ const Loading: React.FC<LoadingProps> = ({ loadingProgress }) => {
 
       svgControl.start({ y: 0 });
       gsap.to('.loading', {display: 'none', delay: 2})
+      gsap.to('body', {height: 'fit-content', overflowY: 'scroll', overflowX: 'hidden' , delay: 2})
     }
   }, [loadingComplete, svgControl]);
 
